@@ -1,70 +1,211 @@
-# Getting Started with Create React App
+# Reconciliation App - Project Setup
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Structure
+```
+reconciliation-app/
+├── public/
+│   ├── index.html
+│   ├── favicon.ico
+│   └── manifest.json
+├── src/
+│   ├── components/
+│   │   ├── ReconciliationPage.jsx
+│   │   └── Reconciliation.css
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.js
+│   └── reportWebVitals.js
+├── package.json
+└── README.md
+```
+
+## Step-by-Step Setup Instructions
+
+### 1. Prerequisites
+Make sure you have the following installed:
+- Node.js (v14 or higher)
+- npm (comes with Node.js)
+
+### 2. Create the Project
+```bash
+# Option 1: Create new React app
+npx create-react-app reconciliation-app
+cd reconciliation-app
+
+# Option 2: Manual setup (if you prefer)
+mkdir reconciliation-app
+cd reconciliation-app
+npm init -y
+```
+
+### 3. Install Dependencies
+```bash
+npm install react react-dom react-scripts web-vitals
+npm install --save-dev @testing-library/react @testing-library/jest-dom @testing-library/user-event
+```
+
+### 4. Create Directory Structure
+```bash
+mkdir src/components
+```
+
+### 5. Create Files
+
+#### Create `src/components/ReconciliationPage.jsx`
+Copy the React component code provided above.
+
+#### Create `src/components/Reconciliation.css`
+Copy the CSS code provided above.
+
+#### Update `src/App.jsx`
+Copy the App component code provided above.
+
+#### Update `src/App.css`
+Copy the App CSS code provided above.
+
+#### Update `src/index.js`
+Copy the index.js code provided above.
+
+#### Update `public/index.html`
+Copy the HTML code provided above.
+
+### 6. Run the Application
+```bash
+npm start
+```
+
+The application will start on `http://localhost:3000`
 
 ## Available Scripts
 
-In the project directory, you can run:
-
 ### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ### `npm run build`
+Builds the app for production to the `build` folder.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `npm test`
+Launches the test runner in interactive watch mode.
 
 ### `npm run eject`
+**Note: this is a one-way operation. Once you eject, you can't go back!**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Features Implemented
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+✅ **File Upload System**
+- Client transaction file upload
+- Multiple source file uploads (Cashfree, API User Recharge, Instant Pay)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+✅ **Date Input**
+- Date picker with dd-MM-yyyy format
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+✅ **Import Functionality**
+- Individual import buttons for each source
+- File validation and error handling
 
-## Learn More
+✅ **Reconciliation Process**
+- Reconcile button with business logic simulation
+- Results display area
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+✅ **Export Functionality**
+- Export unmatched transactions as CSV
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+✅ **Responsive Design**
+- Mobile-friendly layout
+- Tablet and desktop optimization
 
-### Code Splitting
+✅ **UI/UX**
+- Matches original design
+- Professional styling
+- Hover effects and transitions
+- Accessibility features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## File Processing
 
-### Analyzing the Bundle Size
+The application currently handles:
+- `.csv` files
+- `.xlsx` files  
+- `.xls` files
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+For actual file processing, you may want to add libraries like:
+```bash
+npm install papaparse xlsx
+```
 
-### Making a Progressive Web App
+## Customization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Adding Real File Processing
+To add actual CSV/Excel processing:
 
-### Advanced Configuration
+1. Install file processing libraries:
+```bash
+npm install papaparse xlsx
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+2. Import in ReconciliationPage.jsx:
+```javascript
+import Papa from 'papaparse';
+import * as XLSX from 'xlsx';
+```
 
-### Deployment
+3. Replace the alert() calls with actual file processing logic.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Adding Backend Integration
+To connect with a backend API:
 
-### `npm run build` fails to minify
+1. Install axios:
+```bash
+npm install axios
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+2. Add API calls in the component methods.
+
+### Styling Customization
+- Modify `src/components/Reconciliation.css` for styling changes
+- Update color scheme by changing CSS custom properties
+- Adjust responsive breakpoints as needed
+
+## Deployment
+
+### Build for Production
+```bash
+npm run build
+```
+
+### Deploy to Various Platforms
+- **Netlify**: Drag and drop the `build` folder
+- **Vercel**: Connect your Git repository
+- **GitHub Pages**: Use `npm run build` and push to gh-pages branch
+- **AWS S3**: Upload build folder contents
+
+## Browser Compatibility
+
+The application is compatible with:
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Performance Considerations
+
+- Images are optimized for web
+- CSS is modular and efficient
+- React components use functional components with hooks
+- File uploads are handled client-side for better performance
+
+## Security Notes
+
+- File uploads are processed client-side only
+- No sensitive data is stored in localStorage
+- All user interactions are validated
+
+## Future Enhancements
+
+Potential improvements:
+- Real-time file processing progress
+- Advanced filtering and search
+- Data visualization charts
+- Multi-language support
+- Dark mode theme
+- Advanced reconciliation algorithms
+- Integration with accounting software
